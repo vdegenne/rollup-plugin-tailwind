@@ -48,18 +48,18 @@ npm i -D rollup-plugin-css-modules @vdegenne/rollup-plugin-tailwind
 
 `rollup.config.js`:
 
-```json
+```js
 import {tailwind} from '@vdegenne/rollup-plugin-tailwind';
 import {cssModules} from 'rollup-plugin-css-modules';
 
 export default {
-     plugins: [
-          // Order matters!
-          // 1. Resolve tailwind declarations in CSS files.
-          tailwind(),
-          // 2. Convert CSS files to modules.
-          cssModules(),
-     ]
+	plugins: [
+		// Order matters!
+		// 1. Resolve tailwind declarations in CSS files.
+		tailwind(),
+		// 2. Convert CSS files to modules.
+		cssModules(),
+	],
 };
 ```
 
