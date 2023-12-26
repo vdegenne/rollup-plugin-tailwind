@@ -1,0 +1,78 @@
+{
+	"name": "@vdegenne/rollup-plugin-tailwind",
+	"version": "1.0.0",
+	"description": "Small plugin that resolves tailwind in css imports, nothing more.",
+	"type": "module",
+	"main": "index.js",
+	"exports": {
+		".": {
+			"default": "./lib/index.js",
+			"types": "./lib/index.d.ts"
+		},
+		"./wds.js": {
+			"default": "./lib/wds.js",
+			"types": "./lib/wds.d.ts"
+		}
+	},
+	"scripts": {
+		"test": "wireit",
+		"build": "wireit"
+	},
+	"wireit": {
+		"build": {
+			"dependencies": [
+				"build:declarations"
+			]
+		},
+		"test": {
+			"command": "node --test-reporter spec test/*_test.js",
+			"files": [
+				"web-test-runner.config.js",
+				"lib",
+				"test"
+			]
+		},
+		"build:declarations": {
+			"command": "tsc",
+			"files": [
+				"tsconfig.json"
+			],
+			"output": [
+				"lib/**/*.d.ts"
+			]
+		}
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/vdegenne/rollup-plugin-tailwind.git"
+	},
+	"keywords": [
+		"rollup",
+		"tailwind",
+		"postcss",
+		"@web/dev-server"
+	],
+	"author": "Valentin Degenne",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/vdegenne/rollup-plugin-tailwind/issues"
+	},
+	"homepage": "https://github.com/vdegenne/rollup-plugin-tailwind#readme",
+	"devDependencies": {
+		"@rollup/plugin-virtual": "^3.0.2",
+		"@web/dev-server": "^0.4.1",
+		"postcss": "^8.4.32",
+		"rollup": "^4.9.1",
+		"rollup-plugin-css-modules": "^0.1.2",
+		"tailwindcss": "^3.4.0",
+		"typescript": "^5.3.3",
+		"wireit": "^0.14.1"
+	},
+	"peerDependencies": {
+		"postcss": "^8.4.32",
+		"tailwindcss": "^3.4.0"
+	},
+	"files": [
+		"/lib"
+	]
+}
